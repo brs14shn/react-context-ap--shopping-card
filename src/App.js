@@ -1,14 +1,14 @@
 import './App.css';
-import Header from './components/Header';
 import AppRouter from './router/AppRouter';
+import CardContextProvider from './context/CardContextProvider';
+
 
 function App() {
   return (
-    <AppRouter >
-      <Header/>
-      
-     
-    </AppRouter>
+    <CardContextProvider>
+     <AppRouter/>
+    </CardContextProvider>
+  
   );
 }
 

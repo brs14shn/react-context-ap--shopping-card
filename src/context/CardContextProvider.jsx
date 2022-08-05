@@ -1,8 +1,13 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { faker } from "@faker-js/faker";
 
 //? 1- Defining
 export const CardContext = createContext();
+
+//?//? 3-Consume function (Custom Hook)
+export const useCardCustomContext = () => {
+  return useContext(CardContext);
+};
 
 //? 2- Provider Component
 const CardContextProvider = ({ children }) => {
@@ -15,8 +20,10 @@ const CardContextProvider = ({ children }) => {
     fastDelivery: faker.datatype.boolean(),
     ratings: faker.random.numeric([1, 2, 3, 4, 5]),
   }));
-  //   console.log(products);
+  console.log(products);
 
-  return <CardContext.Provider>{children}</CardContext.Provider>;
+  return (
+    <CardContext.Provider value={products}>{children}</CardContext.Provider>
+  );
 };
 export default CardContextProvider;
