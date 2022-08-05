@@ -15,7 +15,7 @@ const CardContextProvider = ({ children }) => {
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
-    image: faker.image.city(),
+    image: faker.image.city(false),
     inStock: faker.random.numeric([0, 3, 4, 4, 5, 3]),
     fastDelivery: faker.datatype.boolean(),
     ratings: faker.random.numeric([1, 2, 3, 4, 5]),
@@ -23,7 +23,7 @@ const CardContextProvider = ({ children }) => {
   console.log(products);
 
   return (
-    <CardContext.Provider value={products}>{children}</CardContext.Provider>
+    <CardContext.Provider value={{ products }}>{children}</CardContext.Provider>
   );
 };
 export default CardContextProvider;

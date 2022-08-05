@@ -11,9 +11,9 @@ const Card = () => {
   return (
     <div>
       <h1>Card</h1>
-      <div>
+      <div className="d-flex gap-2">
         {products?.map((product, index) => (
-          <p>{product.name}</p>
+          <img src={product.image} alt="" style={{ width: 100 }} />
         ))}
       </div>
     </div>
