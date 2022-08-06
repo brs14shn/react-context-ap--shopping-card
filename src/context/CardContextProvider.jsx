@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import { faker } from "@faker-js/faker";
 
-import { CardReducer, initialState } from "../reducer/CardReducer";
+import { CardReducer } from "../reducer/CardReducer";
 
 //? 1- Defining
 export const CardContext = createContext();
@@ -31,7 +31,7 @@ const CardContextProvider = ({ children }) => {
     products: products,
     card: [],
   });
-  console.log(state);
+  // console.log(state);
 
   return (
     // <CardContext.Provider value={{ products }}>{children}</CardContext.Provider>
