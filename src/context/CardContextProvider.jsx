@@ -1,5 +1,7 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { faker } from "@faker-js/faker";
+
+import { CardReducer, initialState } from "../reducer/CardReducer";
 
 //? 1- Defining
 export const CardContext = createContext();
@@ -20,10 +22,22 @@ const CardContextProvider = ({ children }) => {
     fastDelivery: faker.datatype.boolean(),
     ratings: faker.random.numeric([1, 2, 3, 4, 5]),
   }));
-  console.log(products);
+  // console.log(products);
+
+  //? USEREDUCER
+
+  // const [state, dispatch] = useReducer(CardReducer, initialState);
+  const [state, dispatch] = useReducer(CardReducer, {
+    products: products,
+    card: [],
+  });
+  console.log(state);
 
   return (
-    <CardContext.Provider value={{ products }}>{children}</CardContext.Provider>
+    // <CardContext.Provider value={{ products }}>{children}</CardContext.Provider>
+    <CardContext.Provider value={{ state, dispatch }}>
+      {children}
+    </CardContext.Provider>
   );
 };
 export default CardContextProvider;
