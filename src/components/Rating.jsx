@@ -1,7 +1,25 @@
 import React from "react";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const Rating = ({ rating, style, onClick }) => {
-  return <div>Rating</div>;
+  return (
+    <>
+      {[...Array(5)].map((_, i) => (
+        <span
+          className="rating"
+          key={i}
+          onClick={() => onClick(i)}
+          style={style}
+        >
+          {rating > i ? (
+            <AiFillStar fontSize="15px" />
+          ) : (
+            <AiOutlineStar fontSize="15px" />
+          )}
+        </span>
+      ))}
+    </>
+  );
 };
 
 export default Rating;
