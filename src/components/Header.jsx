@@ -33,12 +33,12 @@ const Header = () => {
           />
         </Navbar.Text>
         <Nav>
-          <Dropdown alignLeft>
+          <Dropdown>
             <DropdownToggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />
               <Badge className="ms-2">{cart.length}</Badge>
             </DropdownToggle>
-            <DropdownMenu style={{ minWidth: 370 }}>
+            <DropdownMenu style={{ minWidth: 370 }} align="end">
               <span style={{ padding: 10 }}>Cart is Empty</span>
             </DropdownMenu>
           </Dropdown>
