@@ -18,7 +18,8 @@ const CardContextProvider = ({ children }) => {
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
     image: faker.image.city(false),
-    inStock: faker.random.numeric([0, 3, 4, 4, 5, 3]),
+    // inStock: faker.random.numeric([0, 1, 2, 3, 4, 5]),
+    inStock: faker.helpers.arrayElement([0, 1, 2, 3, 4, 5]),
     fastDelivery: faker.datatype.boolean(),
     ratings: faker.random.numeric([1, 2, 3, 4, 5]),
   }));
@@ -29,7 +30,7 @@ const CardContextProvider = ({ children }) => {
   // const [state, dispatch] = useReducer(CardReducer, initialState);
   const [state, dispatch] = useReducer(CardReducer, {
     products: products,
-    card: [],
+    cart: [],
   });
   // console.log(state);
 

@@ -11,8 +11,13 @@ import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useCardCustomContext } from "../context/CardContextProvider";
 
 const Header = () => {
+  const { state, dispatch } = useCardCustomContext();
+  // console.log(state);
+  const { products, cart } = state;
+  // console.log(cart);
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
@@ -22,7 +27,7 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Text className="search">
           <FormControl
-            style={{ width: 200 }}
+            style={{ width: 500 }}
             placeholder="Search a product"
             className="m-auto"
           />
@@ -31,10 +36,10 @@ const Header = () => {
           <Dropdown alignLeft>
             <DropdownToggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />
-              <Badge className="ms-2">{0}</Badge>
+              <Badge className="ms-2">{cart.length}</Badge>
             </DropdownToggle>
             <DropdownMenu style={{ minWidth: 370 }}>
-              <span style={{ padding: 10 }}>Card is Empty</span>
+              <span style={{ padding: 10 }}>Cart is Empty</span>
             </DropdownMenu>
           </Dropdown>
         </Nav>

@@ -6,7 +6,7 @@ import { useCardCustomContext } from "../context/CardContextProvider";
 const Home = () => {
   const { state } = useCardCustomContext();
   // console.log(state);
-  const { products, card } = state;
+  const { products, cart } = state;
   console.log(products);
 
   return (
