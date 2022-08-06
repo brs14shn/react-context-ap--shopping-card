@@ -1,4 +1,5 @@
 import React from "react";
+import Filter from "../components/Filter";
 import SingleProducts from "../components/SingleProducts";
 import { useCardCustomContext } from "../context/CardContextProvider";
 
@@ -10,7 +11,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* <Filters/> */}
+      <Filter />
       <div className="productContainer">
         {products.map((product) => {
           // return <span>{product.name}</span>;
